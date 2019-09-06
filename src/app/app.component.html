@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu type="overlay">
+      <ion-header>
+        <ion-toolbar color="success">
+          <ion-title>Trollάρουμε</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-item-group>
+            <ion-item-divider>
+              <ion-label>Στοιχεία Εφαρμογής</ion-label>
+            </ion-item-divider>
+              <ion-item lines="none"><small>Έκδοση: To Troll Beta Version</small></ion-item>
+              <ion-item lines="none"><small>Επικοινωνία: <a href="mailto:info@totroll.gr">info@totroll.gr</a></small></ion-item>
+          </ion-item-group>
+            
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

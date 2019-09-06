@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>To Troll</ion-title>
+   <div slot="end"><img src="../assets/logo-mweb.png" width="80px" style="display:inline-block" height="80px"/></div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="dark">
+  	<div (click)="loadPost(post)" padding-bottom *ngFor="let post of posts$ | async" class="postcards">
+    <div>
+        <div *ngIf="post.featured_image">
+            <img padding-top class="featured-image" [src]="post.featured_image">
+        </div>
+      <strong><h3 [innerHTML]="post.title.rendered"> </h3></strong>
+      <ion-datetime [(ngModel)]="post.date" displayFormat="DD.MM.YYYY"></ion-datetime>
+    </div>
+    
+  </div>
+  <ion-button expand="full" (click)="loadPosts()" color="success">ΠΕΡΙΣΣΟΤΕΡΑ ΑΡΘΡΑ</ion-button>
+</ion-content>
